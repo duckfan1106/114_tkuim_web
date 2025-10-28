@@ -73,3 +73,11 @@ input:focus {
 .strength-strong {
     background-color: green;
 }
+
+.hidden {
+    display: none;
+}
+
+#success-screen {
+    text-align: center;
+}

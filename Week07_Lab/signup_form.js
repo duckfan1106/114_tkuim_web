@@ -3,6 +3,9 @@ const submitBtn = document.getElementById('submit-btn');
 const resetBtn = document.getElementById('reset-btn');
 const successMessage = document.getElementById('success-message');
 const strengthBar = document.getElementById('strength-bar');
+const successScreen = document.getElementById('success-screen');
+const formContainer = document.getElementById('form-container');
+const backBtn = document.getElementById('back-btn');
 
 // 儲存欄位內容到 localStorage
 function saveToLocalStorage() {
@@ -132,10 +135,10 @@ form.addEventListener('submit', async (event) => {
     submitBtn.textContent = '送出中...';
 
     await new Promise(resolve => setTimeout(resolve, 1000));
-    successMessage.textContent = '註冊成功！感謝您的註冊！';
-
-    // 提示用戶表單已成功送出
-    alert('表單已成功送出！');
+    
+    // 隱藏表單並顯示成功畫面
+    formContainer.classList.add('hidden');
+    successScreen.classList.remove('hidden');
 
     // 清空
     form.reset();
@@ -143,11 +146,6 @@ form.addEventListener('submit', async (event) => {
     strengthBar.className = 'strength-bar';
     submitBtn.disabled = false;
     submitBtn.textContent = '送出';
-
-    // 自動隱藏成功消息
-    setTimeout(() => {
-        successMessage.textContent = '';
-    }, 3000);
 });
 
 // 重設按鈕事件
@@ -156,6 +154,12 @@ resetBtn.addEventListener('click', () => {
     document.querySelectorAll('.error-message').forEach(msg => msg.textContent = '');
     strengthBar.className = 'strength-bar';
     clearLocalStorage(); // 清除 localStorage
+});
+
+// 返回按鈕事件
+backBtn.addEventListener('click', () => {
+    successScreen.classList.add('hidden');
+    formContainer.classList.remove('hidden');
 });
 
 // 密碼強度檢查
