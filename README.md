@@ -8,7 +8,7 @@
 -加入test.html
 
 
-## Week07-Lab
+## Week07_Lab
 -錯誤訊息：
 -姓名為必填欄位
 -Email為必填欄位
@@ -16,3 +16,9 @@
 -手機必須是10碼數字
 -密碼至少要8碼
 -必須同意服務條款
+
+## Week09_Lab
+環境需求:Node.js,npm
+啟動步驟:npm install -> pwd(確認當前路徑) -> npm run dev (啟動伺服器) 確認ready
+測試:curl , VS Code REST Client , Postman
+

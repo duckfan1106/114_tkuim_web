@@ -1,0 +1,41 @@
+
+GET http://localhost:3001/health
+
+
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "REST Client",
+  "email": "rest@example.com",
+  "phone": "0988777666",
+  "password": "restrest123",
+  "confirmPassword": "restrest123",
+  "interests": ["全端"],
+  "terms": true
+}
+
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "李四",
+  "email": "lee@example.com"
+  
+}
+
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "密碼錯",
+  "email": "wrong@password.com",
+  "phone": "0912345678",
+  "password": "abc",
+  "confirmPassword": "xyz",
+  "terms": true
+}
+
+GET http://localhost:3001/api/signup
+
+GET http://localhost:3001/api/non-existent-route
