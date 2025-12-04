@@ -1,0 +1,34 @@
+### 1. 建立報名
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "測試同學",
+  "email": "test@example.com",
+  "phone": "0912345678"
+}
+
+### 1-2. 測試重複 Email (應該要失敗)
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "分身帳號",
+  "email": "test@example.com",
+  "phone": "0900000000"
+}
+
+### 2. 取得清單 (分頁測試)
+GET http://localhost:3001/api/signup?page=1&limit=5
+
+### 3. 更新資料 (請將下面的 ID 替換成剛剛 POST 回傳的 ID)
+PATCH http://localhost:3001/api/signup/654321abcd...
+Content-Type: application/json
+
+{
+  "status": "confirmed",
+  "phone": "0999888777"
+}
+
+### 4. 刪除資料
+DELETE http://localhost:3001/api/signup/654321abcd...
