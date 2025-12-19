@@ -1,0 +1,15 @@
+import { getCollection } from '../db.js';
+
+export async function findUserByEmail(email) {
+  return getCollection('users').findOne({ email });
+}
+
+export async function findUserById(id) {
+  return getCollection('users').findOne({ _id: id });
+}
+
+export async function createUser({ email, passwordHash, role = 'student' }) {
+  const doc = { email, passwordHash, role, createdAt: new Date() };
+  const result = await getCollection('users').insertOne(doc);
+  return { ...doc, _id: result.insertedId };
+}
